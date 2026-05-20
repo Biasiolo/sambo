@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchShows } from "@/lib/shows";
-import { Calendar, MapPin, Clock } from "lucide-react";
+import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function Agenda() {
   const { data, isLoading, isError } = useQuery({
