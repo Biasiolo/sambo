@@ -1,26 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/Header";
+import { Agenda } from "@/components/Agenda";
+import { Integrantes } from "@/components/Integrantes";
+import { Contato } from "@/components/Contato";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Sambô — Pagode de raiz | Agenda de shows" },
+      {
+        name: "description",
+        content:
+          "Sambô: banda de pagode com seis integrantes. Confira a agenda de shows, conheça os integrantes e fale com a banda.",
+      },
+      { property: "og:title", content: "Sambô — Pagode de raiz" },
+      { property: "og:description", content: "Agenda de shows, integrantes e contato da banda Sambô." },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main>
+      <Header />
+      <Agenda />
+      <Integrantes />
+      <Contato />
+    </main>
+  );
 }
