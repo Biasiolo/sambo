@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchShows } from "@/lib/shows";
-import { Calendar, MapPin, Clock } from "lucide-react";
+import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function Agenda() {
   const { data, isLoading, isError } = useQuery({
@@ -80,6 +81,16 @@ export function Agenda() {
                     <span>{show.cidade}</span>
                   </div>
                 </div>
+                {show.ingresso && (
+                  <div className="mt-5">
+                    <a href={show.ingresso} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" className="w-full gap-2 bg-secondary text-secondary-foreground hover:bg-secondary/90">
+                        <ExternalLink className="h-4 w-4" />
+                        Comprar Ingresso
+                      </Button>
+                    </a>
+                  </div>
+                )}
               </article>
             ))}
           </div>
