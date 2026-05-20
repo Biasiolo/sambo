@@ -9,6 +9,7 @@ export type Show = {
   horario: string;
   local: string;
   cidade: string;
+  ingresso: string;
 };
 
 export async function fetchShows(): Promise<Show[]> {
@@ -26,6 +27,7 @@ export async function fetchShows(): Promise<Show[]> {
       horario: (r["HORÁRIO"] ?? r["HORARIO"] ?? "").trim(),
       local: (r["LOCAL"] ?? "").trim(),
       cidade: (r["CIDADE"] ?? "").trim(),
+      ingresso: (r["INGRESSO"] ?? "").trim(),
     }))
     .filter((s) => s.data || s.local);
 }
