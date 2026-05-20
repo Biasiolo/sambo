@@ -72,10 +72,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sambô" },
-      { name: "description", content: "Banda de pagode Sambô — agenda, integrantes e contato." },
+      { title: "Sambô-teste" },
+      { name: "description", content: "Sambô Live is a website for the pagode band Sambô, showcasing their shows, members, and contact information." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Sambô-teste" },
+      { name: "twitter:title", content: "Sambô-teste" },
+      { property: "og:description", content: "Sambô Live is a website for the pagode band Sambô, showcasing their shows, members, and contact information." },
+      { name: "twitter:description", content: "Sambô Live is a website for the pagode band Sambô, showcasing their shows, members, and contact information." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b13f81a4-59f2-4bf8-9618-fdcad6682074/id-preview-8271dd37--ee75011a-6507-4d17-b10b-ef0f2ef9274e.lovable.app-1779318833151.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b13f81a4-59f2-4bf8-9618-fdcad6682074/id-preview-8271dd37--ee75011a-6507-4d17-b10b-ef0f2ef9274e.lovable.app-1779318833151.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
