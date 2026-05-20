@@ -81,6 +81,16 @@ export function Agenda() {
                     <span>{show.cidade}</span>
                   </div>
                 </div>
+                {show.ingresso && (
+                  <div className="mt-5">
+                    <a href={show.ingresso} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" className="w-full gap-2 bg-secondary text-secondary-foreground hover:bg-secondary/90">
+                        <ExternalLink className="h-4 w-4" />
+                        Comprar Ingresso
+                      </Button>
+                    </a>
+                  </div>
+                )}
               </article>
             ))}
           </div>
