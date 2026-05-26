@@ -1,16 +1,14 @@
-/* eslint-disable prettier/prettier */
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
+import tsconfigPaths from "vite-tsconfig-paths";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 export default defineConfig({
-  plugins: [react()],
-
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
+  plugins: [
+    TanStackRouterVite(),
+    react(),
+    tsconfigPaths(),
+  ],
 
   build: {
     outDir: "dist",
