@@ -1,59 +1,138 @@
-import heroBanner from "@/assets/hero-banner.jpg";
+/* eslint-disable prettier/prettier */
+
+import heroBanner from "@/assets/banner1.png";
+
+import {
+  FaInstagram,
+  FaSpotify,
+  FaYoutube,
+  FaFacebookF,
+  FaTiktok,
+  FaApple,
+  FaAmazon,
+} from "react-icons/fa";
+
+import { SiTidal } from "react-icons/si";
+import { FaDeezer } from "react-icons/fa";
 
 export function Header() {
   return (
-    <header className="relative min-h-[92vh] w-full overflow-hidden">
-      <img
-        src={heroBanner}
-        alt="Sambô tocando ao vivo"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
-      <div
-        className="absolute inset-0 opacity-40 mix-blend-overlay"
-        style={{ background: "var(--gradient-hero)" }}
-      />
+    <header className="relative w-full overflow-hidden">
+      <div className="relative ">
+        {/* Banner */}
+        <img
+          src={heroBanner}
+          alt="Banda Sambô"
+          className="h-full w-full object-cover object-top"
+        />
 
-      <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-        <span className="font-display text-3xl tracking-widest text-primary">SAMBÔ</span>
-        <div className="hidden gap-8 text-sm font-medium uppercase tracking-wider text-foreground/80 md:flex">
-          <a href="#agenda" className="hover:text-primary transition-colors">Agenda</a>
-          <a href="#integrantes" className="hover:text-primary transition-colors">Integrantes</a>
-          <a href="#contato" className="hover:text-primary transition-colors">Contato</a>
-        </div>
-      </nav>
+        {/* Navegação */}
+        {/* Navegação */}
+<nav className="absolute top-0 left-0 z-20 flex w-full justify-center px-5 py-5 text-black">
+  <div className="flex items-center gap-6 md:gap-8">
 
-      <div className="relative z-10 mx-auto flex min-h-[78vh] max-w-7xl flex-col items-start justify-center px-6">
-        <span className="mb-4 inline-block rounded-full border border-primary/40 bg-background/40 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary backdrop-blur">
-          Pagode de raiz
-        </span>
-        <h1 className="font-display text-7xl leading-[0.9] text-foreground sm:text-8xl md:text-[10rem]">
-          <span className="block text-primary drop-shadow-[0_4px_30px_rgba(0,0,0,0.6)]">SAMBÔ</span>
-          <span className="block text-2xl font-sans font-light tracking-[0.4em] text-foreground/80 sm:text-3xl">
-            o som que faz a roda girar
-          </span>
-        </h1>
-        <p className="mt-8 max-w-xl text-base text-foreground/80 sm:text-lg">
-          Seis amigos, um pandeiro e a vontade de fazer todo mundo cantar junto.
-          Pagode autoral e clássicos que não saem da cabeça.
-        </p>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <a
-            href="#agenda"
-            className="rounded-full bg-primary px-8 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:-translate-y-0.5"
-          >
-            Ver próximos shows
-          </a>
-          <a
-            href="#contato"
-            className="rounded-full border border-foreground/30 bg-background/20 px-8 py-3 text-sm font-semibold uppercase tracking-wider text-foreground backdrop-blur transition-colors hover:border-primary hover:text-primary"
-          >
-            Contratar a banda
-          </a>
-        </div>
+    {/* Links */}
+    <a
+      href="#agenda"
+      className="text-md font-bold uppercase tracking-[0.25em] transition-opacity hover:opacity-60"
+    >
+      Agenda
+    </a>
+
+    <a
+      href="#integrantes"
+      className="text-md font-bold uppercase tracking-[0.25em] transition-opacity hover:opacity-60"
+    >
+      Sobre
+    </a>
+
+    <a
+      href="#contato"
+      className="text-md font-bold uppercase tracking-[0.25em] transition-opacity hover:opacity-60"
+    >
+      Contato
+    </a>
+
+    {/* Divider */}
+    <div className="h-4 w-px bg-white/40" />
+
+    {/* Redes */}
+    <a
+      href="#"
+      aria-label="Facebook"
+      className="transition-transform hover:scale-110"
+    >
+      <FaFacebookF size={18} />
+    </a>
+
+    <a
+      href="#"
+      aria-label="Instagram"
+      className="transition-transform hover:scale-110"
+    >
+      <FaInstagram size={20} />
+    </a>
+
+    <a
+      href="#"
+      aria-label="YouTube"
+      className="transition-transform hover:scale-110"
+    >
+      <FaYoutube size={20} />
+    </a>
+
+    <a
+      href="#"
+      aria-label="Spotify"
+      className="transition-transform hover:scale-110"
+    >
+      <FaSpotify size={20} />
+    </a>
+
+    <a
+      href="#"
+      aria-label="TikTok"
+      className="transition-transform hover:scale-110"
+    >
+      <FaTiktok size={20} />
+    </a>
+
+    <a
+      href="#"
+      aria-label="Apple Music"
+      className="transition-transform hover:scale-110"
+    >
+      <FaApple size={20} />
+    </a>
+
+    <a
+      href="#"
+      aria-label="Amazon Music"
+      className="transition-transform hover:scale-110"
+    >
+      <FaAmazon size={20} />
+    </a>
+
+    <a
+      href="#"
+      aria-label="Deezer"
+      className="transition-transform hover:scale-110"
+    >
+      <FaDeezer size={20} />
+    </a>
+
+    <a
+      href="#"
+      aria-label="Tidal"
+      className="transition-transform hover:scale-110"
+    >
+      <SiTidal size={20} />
+    </a>
+  </div>
+</nav>
       </div>
+
+      
     </header>
   );
 }

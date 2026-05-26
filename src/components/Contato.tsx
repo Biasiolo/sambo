@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Instagram, Mail, Phone, Music2 } from "lucide-react";
 
 export function Contato() {
@@ -16,8 +17,8 @@ export function Contato() {
               Fala com a gente
             </h2>
             <p className="mt-4 max-w-md text-background/80">
-              Casamentos, festas, eventos corporativos ou só pra prosear sobre samba.
-              A roda tá sempre aberta.
+              Casamentos, festas, eventos corporativos ou só pra prosear sobre samba. A roda tá
+              sempre aberta.
             </p>
           </div>
 

@@ -1,7 +1,15 @@
+/* eslint-disable prettier/prettier */
+
 import { useQuery } from "@tanstack/react-query";
 import { fetchShows } from "@/lib/shows";
-import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
+import fundoAgenda from "@/assets/fundo.png";
+import cardTexture from "@/assets/hero-banner.jpg";
+
+import {
+  Clock3,
+  MapPin,
+} from "lucide-react";
 
 export function Agenda() {
   const { data, isLoading, isError } = useQuery({
@@ -10,86 +18,230 @@ export function Agenda() {
     staleTime: 60_000,
   });
 
+  const shows = data?.slice(0, 4);
+
   return (
-    <section id="agenda" className="relative px-6 py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-14 flex flex-col items-start gap-3">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-            Próximos shows
-          </span>
-          <h2 className="font-display text-5xl text-foreground sm:text-6xl">
-            Agenda <span className="text-primary">2026</span>
+    <section
+      id="agenda"
+      style={{
+        backgroundImage: `url(${fundoAgenda})`,
+        backgroundSize: "cover",
+        backgroundPosition: "top",
+        padding: "12px 40px",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1600px",
+          margin: "0 auto",
+        }}
+      >
+        {/* Título */}
+        <div
+          style={{
+            marginBottom: "60px",
+            textAlign: "center",
+          }}
+        >
+          <h2
+            className="font-display"
+            style={{
+              fontSize: "clamp(2rem, 4vw, 6rem)",
+              lineHeight: "0.9",
+              color: "#000",
+              fontWeight: "900",
+              letterSpacing: "-2px",
+            }}
+          >
+            AGENDA DE SHOWS
           </h2>
-          <p className="max-w-xl text-muted-foreground">
-            Atualizada em tempo real — direto da planilha da banda.
-          </p>
         </div>
 
+        {/* Loading */}
         {isLoading && (
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {[0, 1, 2].map((i) => (
-              <div key={i} className="h-40 animate-pulse rounded-2xl bg-card" />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "30px",
+            }}
+          >
+            {[0, 1, 2, 3].map((i) => (
+              <div
+                key={i}
+                style={{
+                  height: "240px",
+                  borderRadius: "40px",
+                  background: "rgba(255,255,255,0.1)",
+                }}
+              />
             ))}
           </div>
         )}
 
+        {/* Error */}
         {isError && (
-          <p className="rounded-xl border border-destructive/40 bg-destructive/10 p-6 text-destructive-foreground">
-            Não foi possível carregar a agenda agora. Tente novamente em instantes.
-          </p>
-        )}
-
-        {data && data.length === 0 && (
-          <div className="rounded-2xl border border-border bg-card p-10 text-center">
-            <p className="font-display text-2xl text-primary">Em breve novas datas!</p>
-            <p className="mt-2 text-muted-foreground">
-              Fique de olho — estamos fechando a próxima temporada de shows.
-            </p>
+          <div
+            style={{
+              padding: "40px",
+              borderRadius: "30px",
+              background: "rgba(0,0,0,0.4)",
+              color: "#000000",
+              textAlign: "center",
+            }}
+          >
+            Não foi possível carregar a agenda.
           </div>
         )}
 
-        {data && data.length > 0 && (
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {data.map((show, i) => (
+        {/* Empty */}
+        {shows && shows.length === 0 && (
+          <div
+            style={{
+              padding: "40px",
+              borderRadius: "30px",
+              background: "rgba(0,0,0,0.4)",
+              color: "#000000",
+              textAlign: "center",
+            }}
+          >
+            Em breve novas datas.
+          </div>
+        )}
+
+        {/* Agenda */}
+        {shows && shows.length > 0 && (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "30px",
+            }}
+          >
+            {shows.map((show, index) => (
               <article
-                key={i}
-                className="group relative overflow-hidden rounded-2xl border border-border p-6 transition-all hover:-translate-y-1 hover:border-primary/60"
-                style={{ background: "var(--gradient-card)", boxShadow: "var(--shadow-card)" }}
+                key={index}
+                style={{
+                  background: "#7e7171",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  borderRadius: "42px",
+                  padding: "40px 50px",
+                  minHeight: "240px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: "40px",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
               >
-                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/10 blur-2xl transition-opacity group-hover:opacity-100" />
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
-                      {show.mes}
-                    </p>
-                    <p className="mt-1 font-display text-5xl text-primary">{show.data}</p>
+                {/* Data */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "20px",
+                    minWidth: "280px",
+                  }}
+                >
+                  <h3
+                    className="font-display"
+                    style={{
+                      fontSize: "8rem",
+                      lineHeight: "0.8",
+                      color: "#000",
+                    }}
+                  >
+                    {show.data}
+                  </h3>
+
+                  <span
+                    style={{
+                      writingMode: "vertical-rl",
+                      transform: "rotate(180deg)",
+                      color: "#facc15",
+                      fontWeight: "800",
+                      letterSpacing: "0.3em",
+                      fontSize: "1rem",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {show.mes}
+                  </span>
+                </div>
+
+                {/* Infos */}
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    gap: "18px",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: "3rem",
+                      color: "#000",
+                      fontWeight: "800",
+                      lineHeight: "1",
+                    }}
+                  >
+                    {show.local}
                   </div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      color: "rgba(255,255,255,0.85)",
+                      fontSize: "1.1rem",
+                    }}
+                  >
+                    <MapPin size={18} color="#facc15" />
+                    {show.cidade}
+                  </div>
+
                   {show.horario && (
-                    <div className="flex items-center gap-1.5 rounded-full bg-background/60 px-3 py-1 text-xs text-foreground/80">
-                      <Clock className="h-3 w-3" />
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        color: "#fff",
+                        fontSize: "1rem",
+                      }}
+                    >
+                      <Clock3 size={18} color="#facc15" />
                       {show.horario}
                     </div>
                   )}
                 </div>
-                <div className="mt-6 space-y-2">
-                  <div className="flex items-center gap-2 text-foreground">
-                    <Calendar className="h-4 w-4 text-secondary" />
-                    <span className="font-semibold">{show.local}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <MapPin className="h-4 w-4 text-secondary" />
-                    <span>{show.cidade}</span>
-                  </div>
-                </div>
+
+                {/* CTA */}
                 {show.ingresso && (
-                  <div className="mt-5">
-                    <a href={show.ingresso} target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" className="w-full gap-2 bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                        <ExternalLink className="h-4 w-4" />
-                        Comprar Ingresso
-                      </Button>
-                    </a>
-                  </div>
+                  <a
+                    href={show.ingresso}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      background: "#facc15",
+                      color: "#000",
+                      padding: "18px 32px",
+                      borderRadius: "999px",
+                      fontWeight: "900",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.15em",
+                      textDecoration: "none",
+                      whiteSpace: "nowrap",
+                      fontSize: "0.9rem",
+                    }}
+                  >
+                    Comprar ingresso
+                  </a>
                 )}
               </article>
             ))}

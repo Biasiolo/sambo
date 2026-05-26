@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Agenda } from "@/components/Agenda";
@@ -16,6 +17,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Sambô — Pagode de raiz" },
       { property: "og:description", content: "Agenda de shows, integrantes e contato da banda Sambô." },
+      
     ],
   }),
 });
